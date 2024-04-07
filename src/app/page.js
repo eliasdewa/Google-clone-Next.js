@@ -1,4 +1,3 @@
-import React from 'react'
 import HomeHeader from './components/HomeHeader'
 import Image from 'next/image';
 import HomeSearch from './components/HomeSearch';
