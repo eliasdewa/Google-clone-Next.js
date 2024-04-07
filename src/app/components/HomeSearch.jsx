@@ -19,7 +19,8 @@ export default function HomeSearch() {
     e.preventDefault();
     // If we don't have a search input value, then return nothing
     if (!input.trim()) return; // trim => to cut out the spaces
-    // we need a hook => useRouter
+
+    // we need a hook to send the search term into url => useRouter
     router.push(`/search/web?searchTerm=${input}`);
   };
 
