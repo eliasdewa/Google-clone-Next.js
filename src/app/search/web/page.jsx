@@ -2,8 +2,11 @@ import WebSearchResults from "@/app/components/WebSearchResults";
 import Link from "next/link";
 
 export default async function WebSearchPage({searchParams}) {
+  // for loading effect
+  await new Promise(resolve => setTimeout(resolve, 1000));
   // create a request for api
-  const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`);
+  const startIndex = searchParams.start || '1';
+  const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`);
 
   if (!res.ok) {
     return (
